@@ -1,0 +1,8 @@
+.vscode/
+src/API/Api/bin/
+src/API/Api/obj/
+.vs/
+!.vscode/settings.json
+!.vscode/tasks.json
+!.vscode/launch.json
+!.vscode/extensions.json
