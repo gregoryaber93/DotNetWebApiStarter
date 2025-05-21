@@ -1,8 +1,131 @@
+# Build results
+bin/
+obj/
+out/
+
+# User-specific files
+*.user
+*.userosscache
+*.suo
+*.sln.docstates
+
+# Visual Studio Code
 .vscode/
-src/API/Api/bin/
-src/API/Api/obj/
+.history/
+
+# Rider
+.idea/
+*.sln.iml
+
+# ASP.NET Scaffolding
+ScaffoldingReadMe.txt
+
+# DotCover
+*.dotCover
+
+# NCrunch
+*.ncrunch*
+.*crunch*.local.xml
+
+# Visual Studio profiler
+*.psess
+*.vsp
+*.vspx
+*.sap
+
+# ReSharper
+_ReSharper*/
+*.[Rr]e[Ss]harper
+
+# DotTrace
+*.dotTrace
+
+# TeamCity
+_TeamCity*
+
+# DotMemory
+*.dotMemory
+
+# Azure Pipelines
+.azure-pipelines/
+
+# Publish outputs
+publish/
+app.publish/
+
+# NuGet
+*.nupkg
+# The packages folder can be ignored because of Package Restore
+**/packages/*
+!**/packages/build/
+!**/packages/repositories.config
+# NuGet v3's project.json files produces this lock file
+project.lock.json
+# NuGet v4.6+ produces this lock file
+packages.lock.json
+# NuGet v5.0+ produces this assets file
+project.assets.json
+
+# Entity Framework
+*.dbmdl
+*.jfm
+
+# MSTest test Results
+[Tt]est[Rr]esult*/
+[Bb]uild[Ll]og.*
+
+# NUNIT
+*.VisualState.xml
+TestResult.xml
+nunit-*.xml
+
+# Build logs
+*.log
+
+# LocalDB
+*.mdf
+*.ldf
+
+# OS generated files
+.DS_Store
+Thumbs.db
+
+# Windows image file caches
+ehthumbs.db
+
+# Folder config file
+Desktop.ini
+
+# VS Code settings
+.vscode/
+
+# Rider settings
+.idea/
+
+# Others
+*.vspscc
+*.vssscc
+*.pdb
+*.cache
+*.db
+*.bak
+*.swp
+*.swo
+*.tmp
+
+# Dotnet tool restore
+.dotnet/
+
+# Global tool manifest
+.dotnet-tools.json
+
+# Coverage reports
+coverage/
+coverage*.json
+coverage*.xml
+coverage*.info
+lcov-report/
+
+# SonarQube
+.sonar/
 .vs/
-!.vscode/settings.json
-!.vscode/tasks.json
-!.vscode/launch.json
-!.vscode/extensions.json

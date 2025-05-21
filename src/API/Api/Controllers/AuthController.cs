@@ -1,3 +1,4 @@
+using Application.Services.Restaurant;
 using Microsoft.AspNetCore.Mvc;
 
 namespace DetNetWebApiStarter.Namespace
@@ -6,10 +7,17 @@ namespace DetNetWebApiStarter.Namespace
     [ApiController]
     public class AuthController : ControllerBase
     {
+        private readonly IRestaurantService _restaurantService;
+        public AuthController(IRestaurantService restaurantService)
+        {
+            _restaurantService = restaurantService;
+        }
+
         [HttpGet("login")]
         public IActionResult Login()
         {
-            return Ok();
+            _restaurantService.Test();
+            return Ok("asd");
         }
 
         [HttpPost("register")]
