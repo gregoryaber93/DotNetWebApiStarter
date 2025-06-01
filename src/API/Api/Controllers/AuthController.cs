@@ -1,4 +1,5 @@
-using Application.Services.Restaurant;
+using Application.DTO;
+using Application.Services.Account;
 using Microsoft.AspNetCore.Mvc;
 
 namespace DetNetWebApiStarter.Namespace
@@ -7,23 +8,24 @@ namespace DetNetWebApiStarter.Namespace
     [ApiController]
     public class AuthController : ControllerBase
     {
-        private readonly IRestaurantService _restaurantService;
-        public AuthController(IRestaurantService restaurantService)
+        private readonly IAccountService _accountService;
+        public AuthController(IAccountService accountService)
         {
-            _restaurantService = restaurantService;
+            _accountService = accountService;
         }
 
-        [HttpGet("login")]
-        public IActionResult Login()
+        [HttpPost("login")]
+        public IActionResult Login([FromBody] LoginUserDto loginUserDto)
         {
-            _restaurantService.Test();
-            return Ok("asd");
+            var token = _accountService.Login(loginUserDto);
+            return Ok(token);
         }
 
         [HttpPost("register")]
-        public IActionResult Register()
+        public IActionResult Register([FromBody] RegisterUserDto registerDto)
         {
-            return BadRequest();
+            _accountService.RegisterUser(registerDto);
+            return Ok();
         }
     }
 }

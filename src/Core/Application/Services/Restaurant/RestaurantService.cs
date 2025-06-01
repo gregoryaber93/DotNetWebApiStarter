@@ -9,11 +9,10 @@ namespace Application.Services.Restaurant
 
     public class RestaurantService : IRestaurantService
     {
-        private readonly TestDbContext _testDbContext;
 
-        public RestaurantService(TestDbContext dbContext)
+        public RestaurantService()
         {
-            _testDbContext = dbContext;
+            
         }
 
         public void Test()
