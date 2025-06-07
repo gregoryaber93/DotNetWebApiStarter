@@ -6,5 +6,6 @@ namespace Application.Services.Email
     {
         Task SendEmailAsync(string to, string subject, string body);
         Task SendRegistrationConfirmationAsync(string to, string registerCode);
+        Task SendPasswordResetAsync(string to, string resetCode);
     }
 } 

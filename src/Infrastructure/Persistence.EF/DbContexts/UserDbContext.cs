@@ -1,4 +1,5 @@
-﻿using Domain.Entities;
+﻿using Domain.Common.Ids;
+using Domain.Entities;
 using Microsoft.EntityFrameworkCore;
 
 namespace Persistence.EF.DbContexts
@@ -16,6 +17,32 @@ namespace Persistence.EF.DbContexts
 
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
+            modelBuilder.Entity<User>(entity =>
+            {
+                entity.HasKey(e => e.Id);
+                entity.Property(e => e.Id)
+                    .HasConversion(
+                        v => v.Value,
+                        v => EntityId.Create(v))
+                    .HasDefaultValueSql("gen_random_uuid()");
+                
+                entity.Property(e => e.RoleId)
+                    .HasConversion(
+                        v => v.Value,
+                        v => EntityId.Create(v))
+                    .HasDefaultValueSql("gen_random_uuid()");
+            });
+
+            modelBuilder.Entity<Role>(entity =>
+            {
+                entity.HasKey(e => e.Id);
+                entity.Property(e => e.Id)
+                    .HasConversion(
+                        v => v.Value,
+                        v => EntityId.Create(v))
+                    .HasDefaultValueSql("gen_random_uuid()");
+            });
+
             modelBuilder.Entity<User>()
                 .HasOne(u => u.Role)
                 .WithMany()

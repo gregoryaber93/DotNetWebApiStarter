@@ -1,8 +1,10 @@
-﻿namespace Domain.Entities
+﻿using Domain.Common.Ids;
+
+namespace Domain.Entities
 {
     public class Role
     {
-        public int Id { get; set; }
+        public EntityId Id { get; set; }
         public string Name { get; set; }
     }
 }

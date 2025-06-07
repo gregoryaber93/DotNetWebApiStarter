@@ -23,6 +23,7 @@ namespace Application
             services.AddScoped<IAccountService, AccountService>();
             services.AddScoped<IPasswordHasher<User>, PasswordHasher<User>>();
             services.AddScoped<IValidator<RegisterUserDto>, RegisterUserDtoValidator>();
+            services.AddScoped<IValidator<ChangePasswordDto>, ChangePasswordDtoValidator>();
             services.AddAutoMapper(typeof(MappingProfile));
             return services;
         }

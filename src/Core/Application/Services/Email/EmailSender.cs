@@ -46,5 +46,18 @@ namespace Application.Services.Email
 
             await SendEmailAsync(to, subject, body);
         }
+
+        public async Task SendPasswordResetAsync(string to, string resetCode)
+        {
+            var subject = "Reset Your Password";
+            var body = $@"
+                <h2>Password Reset Request</h2>
+                <p>You have requested to reset your password. Please use the following code to reset your password:</p>
+                <h3 style='color: #007bff;'>{resetCode}</h3>
+                <p>This code will be required to reset your password.</p>
+                <p>If you did not request this password reset, please ignore this email and ensure your account is secure.</p>";
+
+            await SendEmailAsync(to, subject, body);
+        }
     }
 } 

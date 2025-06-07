@@ -5,7 +5,7 @@ namespace Application.DTO
     public class VerifyEmailDto
     {
         [Required]
-        public string Email { get; set; }
+        public Guid Id { get; set; }
 
         [Required]
         public string RegisterCode { get; set; }
