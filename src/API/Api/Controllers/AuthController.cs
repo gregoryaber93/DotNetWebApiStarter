@@ -22,10 +22,17 @@ namespace DetNetWebApiStarter.Namespace
         }
 
         [HttpPost("register")]
-        public IActionResult Register([FromBody] RegisterUserDto registerDto)
+        public async Task<IActionResult> Register([FromBody] RegisterUserDto registerDto)
         {
-            _accountService.RegisterUser(registerDto);
-            return Ok();
+            await _accountService.RegisterUser(registerDto);
+            return Ok(new { message = "Registration successful. Please check your email for verification instructions." });
+        }
+
+        [HttpPost("verify-email")]
+        public async Task<IActionResult> VerifyEmail([FromBody] VerifyEmailDto verifyEmailDto)
+        {
+            await _accountService.VerifyEmail(verifyEmailDto);
+            return Ok(new { message = "Email verified successfully. You can now log in." });
         }
     }
 }

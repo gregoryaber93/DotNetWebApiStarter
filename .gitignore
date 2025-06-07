@@ -129,3 +129,4 @@ lcov-report/
 # SonarQube
 .sonar/
 .vs/
+src/Infrastructure/Persistence.EF/Migrations/
