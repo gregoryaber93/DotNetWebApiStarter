@@ -58,7 +58,7 @@ namespace Application.Services.Account
             await _userDbContext.SaveChangesAsync();
 
             // Send registration confirmation email
-            await _emailSender.SendRegistrationConfirmationAsync(newUser.Email, newUser.RegisterCode);
+            await _emailSender.SendRegistrationConfirmationAsync(newUser.Email, newUser.RegisterCode, newUser.Id);
         }
 
         public async Task VerifyEmail(VerifyEmailDto verifyEmailDto)
@@ -174,7 +174,7 @@ namespace Application.Services.Account
             await _userDbContext.SaveChangesAsync();
 
             // Send password reset email
-            await _emailSender.SendPasswordResetAsync(user.Email, resetCode);
+            await _emailSender.SendPasswordResetAsync(user.Email, resetCode, user.Id);
         }
 
         public async Task ResetPassword(ResetPasswordDto resetPasswordDto)

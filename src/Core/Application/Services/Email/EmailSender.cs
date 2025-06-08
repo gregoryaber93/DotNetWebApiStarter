@@ -34,26 +34,29 @@ namespace Application.Services.Email
             await client.SendMailAsync(message);
         }
 
-        public async Task SendRegistrationConfirmationAsync(string to, string registerCode)
+        public async Task SendRegistrationConfirmationAsync(string to, string registerCode, Guid userId)
         {
             var subject = "Confirm Your Registration";
+            var verificationUrl = $"{_emailSettings.BaseUrl}/verify/{userId}/{registerCode}";
             var body = $@"
                 <h2>Welcome to Our Application!</h2>
-                <p>Thank you for registering. To complete your registration, please use the following code:</p>
-                <h3 style='color: #007bff;'>{registerCode}</h3>
-                <p>This code will be required to activate your account.</p>
+                <p>Thank you for registering. To complete your registration, please click the link below:</p>
+                <p><a href='{verificationUrl}' style='color: #007bff; text-decoration: none;'>Click here to verify your email</a></p>
+                <p>Or use this verification code: <strong style='color: #007bff;'>{registerCode}</strong></p>
                 <p>If you did not request this registration, please ignore this email.</p>";
 
             await SendEmailAsync(to, subject, body);
         }
 
-        public async Task SendPasswordResetAsync(string to, string resetCode)
+        public async Task SendPasswordResetAsync(string to, string registerCode, Guid userId)
         {
             var subject = "Reset Your Password";
+            var verificationUrl = $"{_emailSettings.BaseUrl}/verify/{userId}/{registerCode}";
             var body = $@"
                 <h2>Password Reset Request</h2>
-                <p>You have requested to reset your password. Please use the following code to reset your password:</p>
-                <h3 style='color: #007bff;'>{resetCode}</h3>
+                <p>You have requested to reset your password. To complete your registration, please click the link below:</p>
+                <p><a href='{verificationUrl}' style='color: #007bff; text-decoration: none;'>Click here to verify your email</a></p>
+                <p>Or use this verification code: <strong style='color: #007bff;'>{registerCode}</strong></p>
                 <p>This code will be required to reset your password.</p>
                 <p>If you did not request this password reset, please ignore this email and ensure your account is secure.</p>";
 

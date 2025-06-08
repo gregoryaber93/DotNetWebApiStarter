@@ -22,13 +22,13 @@ namespace Persistence.EF
             {
                 if (!_dbContext.Role.Any())
                 {
-                    _dbContext.AddRange(GetRoles());
+                    _dbContext.AddRange(GetRules());
                     _dbContext.SaveChanges();
                 }
             }
         }
 
-        private IEnumerable<Role> GetRoles()
+        private IEnumerable<Role> GetRules()
         {
             return new List<Role>
             {

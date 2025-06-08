@@ -47,6 +47,20 @@ namespace DetNetWebApiStarter.Namespace
             return Ok(new { message = "Password changed successfully." });
         }
 
+        [HttpPost("request-password-reset")]
+        public async Task<IActionResult> RequestPasswordReset([FromBody] RequestPasswordResetDto requestDto)
+        {
+            await _accountService.RequestPasswordReset(requestDto.Email);
+            return Ok(new { message = "If an account exists with this email, you will receive password reset instructions." });
+        }
+
+        [HttpPost("reset-password")]
+        public async Task<IActionResult> ResetPassword([FromBody] ResetPasswordDto resetPasswordDto)
+        {
+            await _accountService.ResetPassword(resetPasswordDto);
+            return Ok(new { message = "Password has been reset successfully. You can now log in with your new password." });
+        }
+
         [HttpDelete("delete-account/{userId}")]
         [Authorize]
         public async Task<IActionResult> DeleteAccount(Guid userId)
