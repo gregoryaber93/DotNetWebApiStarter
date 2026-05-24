@@ -52,12 +52,13 @@ dotnet run --project src/API/Api/Api.csproj
 
 - Swagger UI (development): `https://localhost:<port>/swagger`
 - OpenAPI document: `https://localhost:<port>/openapi/v1.json`
-- Default HTTPS port in this repo is `7167` (see `src/API/Api/Properties/launchSettings.json`)
+- Default HTTPS port in this repo is `7167`, but your local value can differ based on profile/configuration.
+- Check `src/API/Api/Properties/launchSettings.json` and use the `applicationUrl` for your active profile.
 
 ## Database and seed data
 
 - The app uses `UserDbContext` in `Persistence.EF`.
-- On startup, `SeederData` inserts default roles if missing:
+- On startup, the seed process inserts default roles if missing:
   - `admin`
   - `user`
 
