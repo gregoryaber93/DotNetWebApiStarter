@@ -50,8 +50,9 @@ dotnet run --project src/API/Api/Api.csproj
 
 ### 4) Open API docs
 
-- Swagger UI (development): `https://localhost:7167/swagger`
-- OpenAPI document: `https://localhost:7167/openapi/v1.json`
+- Swagger UI (development): `https://localhost:<port>/swagger`
+- OpenAPI document: `https://localhost:<port>/openapi/v1.json`
+- Default HTTPS port in this repo is `7167` (see `src/API/Api/Properties/launchSettings.json`)
 
 ## Database and seed data
 
